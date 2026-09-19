@@ -2,7 +2,7 @@ import { createReadStream } from 'node:fs';
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
 import { createServer } from 'node:http';
-import { extname, join, normalize, sep } from 'node:path';
+import { extname, join, normalize, relative, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
@@ -46,11 +46,15 @@ const validLead = (payload) => ['name', 'email', 'message'].every((key) => typeo
 const serve = async (request, response) => {
 	const pathname = request.url === '/' ? '/index.html' : decodeURIComponent(request.url.split('?')[0]);
 	const filePath = normalize(join(root, pathname));
-	if (!filePath.startsWith(root + sep)) {
+	
+	// Protection contre le Directory Traversal (sécurisé et compatible Linux/Windows)
+	const rel = relative(root, filePath);
+	if (rel.startsWith('..') || isAbsolute(rel)) {
 		response.writeHead(403);
 		response.end('Forbidden');
 		return;
 	}
+
 	try {
 		const file = await stat(filePath);
 		if (!file.isFile()) throw new Error('not_file');
