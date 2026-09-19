@@ -1,0 +1,13 @@
+{
+	"name": "kb-site",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Site vitrine KB",
+	"type": "module",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"engines": {
+		"node": ">=18"
+	}
+}
