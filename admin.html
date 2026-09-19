@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion KB</title>
+  <link rel="icon" type="image/svg+xml" href="img/kb-mark.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+  <header class="site-header"><div class="container navbar"><a class="brand" href="index.html"><img src="img/kb-mark.svg" alt="KB"><span>kB<span>.</span></span></a><a class="button button-dark" href="index.html">Voir le site ↗</a></div></header>
+  <main class="admin-main"><div class="container">
+    <div id="admin-login" class="admin-login"><p class="eyebrow">Accès protégé</p><h1>Connexion à la gestion KB.</h1><form id="login-form" class="admin-form"><label>Mot de passe<input name="password" type="password" required autocomplete="current-password"></label><button class="button button-dark" type="submit">Se connecter ↗</button></form><p id="login-status" class="form-status" role="status"></p></div>
+    <div id="admin-content" hidden><div class="admin-heading"><p class="eyebrow">Espace de gestion</p><h1>Mettre à jour le contenu KB.</h1><p>Ajoute des services et des réalisations sans modifier le code. Les données éditoriales restent locales dans ce navigateur.</p></div>
+    <div class="admin-warning"><strong>Important</strong><span>Cette version est adaptée à une gestion locale de démonstration. Avant publication, ajoute une authentification et une base de données sécurisée.</span></div>
+    <div class="admin-grid">
+      <section class="admin-card"><h2>Ajouter une réalisation</h2><form id="project-form" class="admin-form"><label>Nom du projet<input name="title" required placeholder="Ex. Villa familiale"></label><label>Lieu<input name="location" required placeholder="Ex. Agboville"></label><label>Image URL<input name="image" type="url" required placeholder="https://..."></label><label>Description<textarea name="description" rows="4" required placeholder="Travaux réalisés et résultat obtenu"></textarea></label><button class="button button-dark" type="submit">Ajouter la réalisation ↗</button></form><div id="project-admin-list" class="admin-list"></div></section>
+      <section class="admin-card"><h2>Ajouter un service</h2><form id="service-form" class="admin-form"><label>Nom du service<input name="title" required placeholder="Ex. Climatisation"></label><label>Description<textarea name="description" rows="4" required placeholder="Détail de la prestation"></textarea></label><label>Image URL<input name="image" type="url" required placeholder="https://..."></label><button class="button button-dark" type="submit">Ajouter le service ↗</button></form><div id="service-admin-list" class="admin-list"></div></section>
+    </div>
+    <section class="admin-card leads-card"><h2>Demandes de devis enregistrées</h2><div id="lead-admin-list" class="admin-list"></div></section>
+    <p id="admin-status" class="form-status" role="status" aria-live="polite"></p></div>
+  </div></main>
+  <script src="admin.js" defer></script>
+</body>
+</html>

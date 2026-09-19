@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">KB</title>
+  <desc id="desc">Monogramme KB avec un éclair jaune</desc>
+  <rect width="96" height="96" rx="22" fill="#203532"/>
+  <path d="M24 22h13v20l18-20h17L51 46l22 28H56L38 52l-1 1v21H24V22Z" fill="#fff"/>
+  <path d="M52 15 39 46h11l-5 35 22-43H55l7-23-10-0Z" fill="#c47758"/>
+  <path d="M22 82h52" stroke="#c47758" stroke-width="4" stroke-linecap="round"/>
+</svg>
